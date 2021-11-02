@@ -3,10 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wbpack Exercise</title>
+    <title>To-Do List</title>
+    <script src="https://kit.fontawesome.com/695f3209b8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello webpack!</h1>
+    <h1 class="center" >Hello To-Do İtems!</h1>
+    <section class="create-task">
+        <div class="task-title">
+            <h2>New Task</h2>
+        </div>
+        <div class="task-body">
+            <input type="text" name="newTask" id="newTask">
+            <button> <i class="fas fa-plus"></i></button>
+        </div>
+    </section>
+    <section class="list-tasks">
+        <div class="list-title">
+            <h3 class="center">Task List</h3>
+            <button>Delete ALL</button>
+
+        </div>
+        <div class="list-body">
+            <ul>
+                <li>
+                    <input type="checkbox" name="task" id="task1">
+                    <span>Task 1</span>
+                    <button> <i class="fas fa-window-close"></i></button>
+                   
+                </li>
+                <li>
+                    <input type="checkbox" name="task" id="task1">
+                    <span>Task 1</span>
+                    <button> <i class="fas fa-window-close"></i></button>                </li>
+                <li>
+                    <input type="checkbox" name="task" id="task1">
+                    <span>Task 1</span>
+                    <button> <i class="fas fa-window-close"></i></button>                </li>
+
+            </ul>
+
+        </div>
+    </section>
 </body>
 </html>
