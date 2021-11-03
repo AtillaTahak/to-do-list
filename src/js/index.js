@@ -1,32 +1,44 @@
 import '../style.css';
+import { checkList } from './checkbox.js';
+
+let i = 0;
+const todoList = JSON.parse(localStorage.getItem('to-do'));
 
 const taskListObject = [
   {
     description: 'Task 1',
     completed: false,
-    index: 1,
+    id: i += 1,
   },
   {
-    description: 'Task 1',
+    description: 'Task 2',
     completed: false,
-    index: 1,
+    id: i += 1,
   },
   {
     description: 'Task w',
-    completed: true,
-    index: 1,
+    completed: false,
+    id: i += 1,
   },
 ];
 
 const createTask = (taskListGet) => {
   const elementSection = document.querySelector('.list-body');
+  elementSection.innerHTML = '';
+  const elementUl = document.createElement('ul');
+
   taskListGet.forEach((e) => {
-    const elementUl = document.createElement('ul');
     const elementLi = document.createElement('li');
+    elementLi.setAttribute('id', 'checkbox');
+    if (e.completed === true) {
+      elementLi.className = 'line';
+    } else {
+      elementLi.className = '';
+    }
     const elementInput = document.createElement('input');
-    elementInput.name = 'task';
-    elementInput.id = 'task1';
+    elementInput.id = e.id;
     elementInput.type = 'checkbox';
+    elementInput.name = 'checkbox';
     const elementSpan = document.createElement('span');
     const elementButton = document.createElement('button');
 
@@ -41,7 +53,12 @@ const createTask = (taskListGet) => {
     elementSection.appendChild(elementUl);
   });
 };
+if (todoList != null) {
+  window.addEventListener('load', createTask(todoList));
+} else {
+  window.addEventListener('load', createTask(taskListObject));
+}
 
-window.addEventListener('load', () => {
-  createTask(taskListObject);
-});
+const checkbox = document.querySelectorAll('input[name="checkbox"]');
+
+checkList(checkbox, taskListObject);
