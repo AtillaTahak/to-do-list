@@ -7,13 +7,20 @@ export function checkList(check, listChek) {
   check.forEach((e) => {
     e.addEventListener('change', (t) => {
       if (t.path[1].className === '') {
-        console.log('object');
         t.path[1].className = 'line';
-        listChek[t.target.id].completed = true;
+        listChek.forEach((e) => {
+          if (e.id === t.target.id) {
+            e.completed = true;
+          }
+        });
         updateLocal(listChek);
       } else {
         t.path[1].className = '';
-        listChek[t.target.id].completed = false;
+        listChek.forEach((e) => {
+          if (e.id === t.target.id) {
+            e.completed = false;
+          }
+        });
         updateLocal(listChek);
       }
     });

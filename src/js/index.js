@@ -1,24 +1,23 @@
 import '../style.css';
 import { checkList } from './checkbox.js';
 
-let i = 0;
 const todoList = JSON.parse(localStorage.getItem('to-do'));
 
 const taskListObject = [
   {
     description: 'Task 1',
     completed: false,
-    id: i += 1,
+    id: Math.random().toString(16).slice(2),
   },
   {
     description: 'Task 2',
     completed: false,
-    id: i += 1,
+    id: Math.random().toString(16).slice(2),
   },
   {
     description: 'Task w',
     completed: false,
-    id: i += 1,
+    id: Math.random().toString(16).slice(2),
   },
 ];
 
