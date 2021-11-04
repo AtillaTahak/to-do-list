@@ -129,3 +129,8 @@
   color: blue;
   transform: scale(1.2);
 }
+
+.line {
+  text-decoration: line-through;
+  color: red;
+}
