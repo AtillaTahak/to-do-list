@@ -52,12 +52,15 @@ const createTask = (taskListGet) => {
     elementSection.appendChild(elementUl);
   });
 };
+
 if (todoList != null) {
   window.addEventListener('load', createTask(todoList));
+  const checkbox = document.querySelectorAll('input[name="checkbox"]');
+
+  checkList(checkbox, todoList);
 } else {
   window.addEventListener('load', createTask(taskListObject));
+  const checkbox = document.querySelectorAll('input[name="checkbox"]');
+
+  checkList(checkbox, taskListObject);
 }
-
-const checkbox = document.querySelectorAll('input[name="checkbox"]');
-
-checkList(checkbox, taskListObject);
