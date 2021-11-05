@@ -4,6 +4,7 @@ export const updateLocal = (getList) => {
 };
 
 export function checkList(check, listChek) {
+  console.log(check);
   check.forEach((e) => {
     e.addEventListener('change', (t) => {
       if (t.path[1].className === '') {
