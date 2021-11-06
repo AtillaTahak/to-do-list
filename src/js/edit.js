@@ -1,6 +1,4 @@
-import {
-  createTask,
-} from './functionality.js';
+import { createTask } from './functionality.js';
 
 export default function editTask(taskListGet, todoList) {
   for (let i = 0; i < taskListGet.length; i += 1) {
