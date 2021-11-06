@@ -1,8 +1,10 @@
 import '../style.css';
 import { checkList } from './checkbox.js';
 import {
-  createTask, deleteTaskIm, deleteAllFnc, editTask,
+  createTask,
 } from './functionality.js';
+import { editTask } from './edit.js';
+import { deleteTaskIm, deleteAllFnc } from './delete.js';
 
 const createTaskButton = document.querySelector('#createTask');
 const createTaskText = document.querySelector('#newTask');
