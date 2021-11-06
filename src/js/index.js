@@ -1,66 +1,40 @@
 import '../style.css';
 import { checkList } from './checkbox.js';
+import { createTask } from './functionality.js';
+import { editTask } from './edit.js';
+import { deleteTaskIm, deleteAllFnc } from './delete.js';
 
-const todoList = JSON.parse(localStorage.getItem('to-do'));
+const createTaskButton = document.querySelector('#createTask');
+const createTaskText = document.querySelector('#newTask');
+let todoList = JSON.parse(localStorage.getItem('to-do'));
 
-const taskListObject = [
-  {
-    description: 'Task 1',
+if (todoList == null) {
+  todoList = [];
+}
+const deleteAll = document.querySelector('#deleteAll');
+
+deleteAllFnc(deleteAll, todoList);
+window.addEventListener('load', createTask(todoList));
+
+createTaskButton.addEventListener('click', () => {
+  const createTaskObj = {
+    description: createTaskText.value,
     completed: false,
     id: Math.random().toString(16).slice(2),
-  },
-  {
-    description: 'Task 2',
-    completed: false,
-    id: Math.random().toString(16).slice(2),
-  },
-  {
-    description: 'Task w',
-    completed: false,
-    id: Math.random().toString(16).slice(2),
-  },
-];
+  };
+  todoList.push(createTaskObj);
 
-const createTask = (taskListGet) => {
-  const elementSection = document.querySelector('.list-body');
-  elementSection.innerHTML = '';
-  const elementUl = document.createElement('ul');
+  createTask(todoList);
+  window.location.reload();
+});
 
-  taskListGet.forEach((e) => {
-    const elementLi = document.createElement('li');
-    elementLi.setAttribute('id', 'checkbox');
-    if (e.completed === true) {
-      elementLi.className = 'line';
-    } else {
-      elementLi.className = '';
-    }
-    const elementInput = document.createElement('input');
-    elementInput.id = e.id;
-    elementInput.type = 'checkbox';
-    elementInput.name = 'checkbox';
-    const elementSpan = document.createElement('span');
-    const elementButton = document.createElement('button');
-
-    elementInput.checked = e.completed;
-    elementLi.appendChild(elementInput);
-    elementSpan.innerHTML = e.description;
-    elementLi.appendChild(elementSpan);
-    elementLi.appendChild(elementButton);
-    elementButton.innerHTML = '<i class="fas fa-window-close"></i>';
-
-    elementUl.appendChild(elementLi);
-    elementSection.appendChild(elementUl);
-  });
+window.deleteTaskFnc = (id) => {
+  deleteTaskIm(id, todoList);
 };
 
-if (todoList != null) {
-  window.addEventListener('load', createTask(todoList));
-  const checkbox = document.querySelectorAll('input[name="checkbox"]');
+const spanElemeny = document.getElementsByTagName('span');
 
-  checkList(checkbox, todoList);
-} else {
-  window.addEventListener('load', createTask(taskListObject));
-  const checkbox = document.querySelectorAll('input[name="checkbox"]');
+editTask(spanElemeny, todoList);
+const checkbox = document.querySelectorAll('input[name="checkbox"]');
 
-  checkList(checkbox, taskListObject);
-}
+checkList(checkbox, todoList);

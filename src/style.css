@@ -54,6 +54,7 @@
   background-color: transparent;
   border: none;
   margin-right: 5px;
+  height: 100%;
 }
 
 .task-body input,
@@ -133,4 +134,9 @@
 .line {
   text-decoration: line-through;
   color: red;
+}
+
+.text-box {
+  width: 100%;
+  margin: auto 5% !important;
 }
