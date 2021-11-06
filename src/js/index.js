@@ -1,6 +1,6 @@
 import '../style.css';
 import { checkList } from './checkbox.js';
-import { createTask} from './functionality.js';
+import { createTask } from './functionality.js';
 import { editTask } from './edit.js';
 import { deleteTaskIm, deleteAllFnc } from './delete.js';
 

@@ -6,8 +6,10 @@ export const updateLocal = (getList) => {
 export function checkList(check, listChek) {
   check.forEach((e) => {
     e.addEventListener('change', (t) => {
-      if (t.path[1].className === '') {
-        t.path[1].className = 'line';
+      const firefox = t.path || (t.composedPath && t.composedPath());
+
+      if (firefox[1].className === '') {
+        firefox[1].className = 'line';
         for (let i = 0; i < listChek.length; i += 1) {
           if (listChek[i].id === e.id) {
             listChek[i].completed = true;
@@ -15,7 +17,7 @@ export function checkList(check, listChek) {
           }
         }
       } else {
-        t.path[1].className = '';
+        firefox[1].className = '';
         for (let a = 0; a < listChek.length; a += 1) {
           if (listChek[a].id === e.id) {
             listChek[a].completed = false;
