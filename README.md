@@ -2,7 +2,7 @@
 
 # Module 1: To Do List
 
-> i made up book list with javascript 
+> i made up To-Do list with javascript 
 
 ![screenshot](./app_screenshot.png)
 
@@ -16,11 +16,9 @@
 
 ## Live Demo
 
-[Live Demo Link]
+[Live Demo Link](https://atillatahak.github.io/to-do-list/dist/)
 
-## Presentation
 
-[Video]
 
 
 ## Getting Started
