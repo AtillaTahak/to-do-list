@@ -34,6 +34,7 @@ export default function createTask(taskListGet) {
     elementSection.appendChild(elementUl);
   });
   updateLocal(taskListGet);
+  return taskListGet;
 }
 
 export { createTask };

@@ -13,7 +13,10 @@ if (todoList == null) {
 }
 const deleteAll = document.querySelector('#deleteAll');
 
-deleteAllFnc(deleteAll, todoList);
+deleteAll.addEventListener('click', () => {
+  deleteAllFnc(todoList);
+});
+
 window.addEventListener('load', createTask(todoList));
 
 createTaskButton.addEventListener('click', () => {
@@ -23,7 +26,6 @@ createTaskButton.addEventListener('click', () => {
     id: Math.random().toString(16).slice(2),
   };
   todoList.push(createTaskObj);
-
   createTask(todoList);
   window.location.reload();
 });
